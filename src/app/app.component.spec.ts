@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'my-ang-proj'`, () => {
+  it(`should have as title 'bitcoin-store'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-ang-proj');
+    expect(app.title).toEqual('bitcoin-store');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, my-ang-proj');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, bitcoin-store');
   });
 });
