@@ -1,1 +1,25 @@
-<div>THIS IS THE ROOT APP SECTION! </div>
+<header class="main-header"> 
+  <img [src]="logo" alt="logo">
+  <h1>{{title}}</h1>
+
+  <ul>
+    <li>
+      <a routerLink="/home">Home</a>
+    </li>
+    <li>
+      <a routerLink="/contact">Contacts</a>
+    </li>
+    <!-- <li>
+      <a routerLink="/count-down"
+        ><svg-render [svgName]="countdown"></svg-render
+      ></a>
+    </li>
+    <li>
+      <a routerLink="/show-cords"
+        ><svg-render [svgName]="cords"></svg-render
+      ></a>
+    </li>
+    <li><a routerLink="/who-watch"><svg-render [svgName]="watcher"></svg-render></a></li> -->
+  </ul>
+
+</header>

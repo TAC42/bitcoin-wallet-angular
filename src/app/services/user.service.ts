@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, from, Observable, throwError } from 'rxjs';
 import { catchError, retry, tap, map, take } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { storageService } from './async-storage.service';
+import { storageService } from './user-async-storage.service';
 import { User, UserFilter } from '../models/user.model';
 const ENTITY = 'users'
 
@@ -53,7 +53,7 @@ export class UserService {
     }
 
     public getEmptyUser() {
-        return { name: '', email: '', phone: '' }
+        return { name: '', coins: 0, moves: [] }
     }
 
     public remove(userId: string) {
@@ -120,12 +120,12 @@ export class UserService {
 
     private _createUsers() {
         const users: User[] = [
-            { _id: 'u123', name: 'Melody Burns', email: 'melody-burns@fake.com', phone: 1111111111},
-            { _id: 'u124', name: 'Brian Adams', email: 'brian-adams@fake.com', phone: 2222222222},
-            { _id: 'u125', name: 'Mila Kunis', email: 'mila-kunis@fake.com', phone: 3333333333},
-            { _id: 'u126', name: 'Hugh Laurie', email: 'hugh-laurie@fake.com', phone: 4444444444},
-            { _id: 'u127', name: 'David Solomon', email: 'david-solomon@fake.com', phone: 5555555555},
-            { _id: 'u128', name: 'Albert Einstein', email: 'albert-einstein@fake.com', phone: 6666666666},
+            { _id: 'u123', name: 'Melody Burns', coins: 100 , moves: [] },
+            { _id: 'u124', name: 'Brian Adams', coins: 100 , moves: [] },
+            { _id: 'u125', name: 'Mila Kunis',  coins: 100 , moves: [] },
+            { _id: 'u126', name: 'Hugh Laurie', coins: 100 , moves: [] },
+            { _id: 'u127', name: 'David Solomon',  coins: 100 , moves: [] },
+            { _id: 'u128', name: 'Albert Einstein',  coins: 100 , moves: [] },
         ];
         return users
     }

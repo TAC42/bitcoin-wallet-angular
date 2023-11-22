@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'bitcoin-store';
+  title = 'BitNation Store';
+  logo: string = '../../assets/images/bitcoin.png' 
 }

@@ -1,8 +1,8 @@
 export interface User {
     _id: string
     name: string
-    email: string
-    phone: number
+    coins: number
+    moves: Array<string>
 }
 export interface UserFilter {
     term: string

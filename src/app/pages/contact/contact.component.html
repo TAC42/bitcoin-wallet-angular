@@ -1,1 +1,8 @@
-<p>contact works!</p>
+<section class="contact-index">
+  <contact-filter />
+  <contact-list
+    (remove)="onRemoveContact($event)"
+    [contacts]="contacts$ | async"
+  />
+  <!-- {{prm|async}} -->
+</section>

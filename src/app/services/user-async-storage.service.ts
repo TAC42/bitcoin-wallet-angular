@@ -1,30 +1,35 @@
+import { User } from "../models/user.model"
+
 export const storageService = {
-    post,
+    query,
     get,
+    post,
     put,
     remove,
-    query,
+    makeId
 }
 
-interface EntityId {
+type EntityId = {
     _id: string
 }
 
-function query<T>(entityType: string, delay = 200): Promise<T[]> {
-    var entities = JSON.parse(localStorage.getItem(entityType) as string) || []
-    return new Promise(resolve => setTimeout(() => resolve(entities), delay))
+async function query<T>(entityType: string, delay = 100): Promise<T[]> {
+    var entities = JSON.parse(localStorage.getItem(entityType) || 'null') || []
+    if (delay) {
+        return new Promise((resolve) => setTimeout(resolve, delay, entities))
+    }
+    return entities
 }
 
 async function get<T extends EntityId>(entityType: string, entityId: string): Promise<T> {
     const entities = await query<T>(entityType)
-    const entity = entities.find(entity_1 => entity_1._id === entityId)
-    if (!entity) throw new Error(`Get failed, cannot find entity with id: ${entityId} in: ${entityType}`)
-    return entity
+    const entity = entities.find(entity => entity._id === entityId)
+    if (!entity) throw new Error(`Cannot get, Item ${entityId} of type: ${entityType} does not exist`)
+    return entity;
 }
 
-async function post<T extends EntityId>(entityType: string, newEntity: T): Promise<T> {
-    newEntity = JSON.parse(JSON.stringify(newEntity))
-    newEntity._id = _makeId()
+async function post<T>(entityType: string, newEntity: T): Promise<T> {
+    newEntity = { ...newEntity, _id: makeId() }
     const entities = await query<T>(entityType)
     entities.push(newEntity)
     _save(entityType, entities)
@@ -32,11 +37,9 @@ async function post<T extends EntityId>(entityType: string, newEntity: T): Promi
 }
 
 async function put<T extends EntityId>(entityType: string, updatedEntity: T): Promise<T> {
-    updatedEntity = JSON.parse(JSON.stringify(updatedEntity))
     const entities = await query<T>(entityType)
     const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
-    if (idx < 0) throw new Error(`Update failed, cannot find entity with id: ${updatedEntity._id} in: ${entityType}`)
-    entities.splice(idx, 1, updatedEntity)
+    entities[idx] = updatedEntity
     _save(entityType, entities)
     return updatedEntity
 }
@@ -44,18 +47,17 @@ async function put<T extends EntityId>(entityType: string, updatedEntity: T): Pr
 async function remove<T extends EntityId>(entityType: string, entityId: string): Promise<void> {
     const entities = await query<T>(entityType)
     const idx = entities.findIndex(entity => entity._id === entityId)
-    if (idx < 0) throw new Error(`Remove failed, cannot find entity with id: ${entityId} in: ${entityType}`)
-    entities.splice(idx, 1)
+    if (idx !== -1) entities.splice(idx, 1)
+    else throw new Error(`Cannot remove, item ${entityId} of type: ${entityType} does not exist`)
     _save(entityType, entities)
-
 }
 
-// Private functions
-function _save<T>(entityType: string, entities: T[]): void {
+
+function _save<T>(entityType: string, entities: T[]) {
     localStorage.setItem(entityType, JSON.stringify(entities))
 }
 
-function _makeId(length = 5): string {
+function makeId(length = 5) {
     var txt = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
     for (var i = 0; i < length; i++) {
