@@ -1,6 +1,10 @@
 .contact-list {
-    max-width: 500px;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin-block-start: .5em;
+    max-width: 550px;
+    // display:flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: .75em;
 }

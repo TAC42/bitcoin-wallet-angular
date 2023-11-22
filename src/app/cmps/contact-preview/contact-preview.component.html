@@ -1,18 +1,7 @@
 <section class="contact-preview">
-  <a routerLink="/contact-details/{{contact._id}}">
+  <a routerLink="/contact-details/{{ contact._id }}">
     <article class="user-img"><img [src]="userImg" alt="user" /></article>
     <article class="name">{{ contact.name }}</article>
   </a>
+  <button (click)="onRemoveContact()" class="remove-btn">X</button>
 </section>
-
-<!-- <section class="contact-info">
-      <section class="data">
-          <p>Name: {{contact.name}}</p>
-          <p>E-mail: {{contact.email}}</p>
-          <p>Phone: {{contact.phone}}</p>
-      </section>
-      <section class="actions">
-          <button (click)="onRemoveContact()" class="remove-btn">X</button>
-      </section>
-  </section>
-  <img src="https://robohash.org/{{contact._id}}?set=set4" alt=""> -->

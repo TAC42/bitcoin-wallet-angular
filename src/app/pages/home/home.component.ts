@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { ContactService } from '../../services/contact.service';
 import { Subscription, take } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-home',
@@ -8,23 +9,24 @@ import { Subscription, take } from 'rxjs';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, OnDestroy {
-
-
-  private contactService = inject(ContactService)
+  private userService = inject(UserService)
   subscription!: Subscription
+  firstUser: User | null = null
 
   ngOnInit(): void {
-    this.subscription = this.contactService.loadContacts()
-      .pipe(take(1))
-      .subscribe({
-        error: err => console.log('err:', err)
-      })
+    this.subscription = this.userService.query().pipe(take(1)).subscribe({
+      next: users => {
+        this.firstUser = users[0];
+      },
+      error: err => console.log('err:', err)
+    });
   }
-
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe?.()
   }
 }
+
+
 
 

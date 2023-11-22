@@ -1,6 +1,9 @@
 .contact-preview {
-  padding: 1em 0;
+  position: relative;
+  border-radius: 1em;
   a {
+    padding: 0.5em;
+    background-color: rgba(151, 110, 7, 0.5);
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -11,5 +14,14 @@
       width: 2em;
       height: 2em;
     }
+  }
+  button {
+    position: absolute;
+    top: 5px;   
+    right: 5px;
+    font-size: .5em;
+    border:none;
+    background-color: rgba(26, 26, 26, 0.3);
+    border-radius: .5em;
   }
 }

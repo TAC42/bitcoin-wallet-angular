@@ -1,1 +1,12 @@
-<p>home works!</p>
+<section *ngIf="firstUser" class="home">
+  <article>
+    <h1>Welcome back {{ firstUser.name }}!</h1>
+    <div>
+      <img src="../../../assets/images/coins.png" alt="coins" />
+      <span>{{ firstUser.coins }}</span>
+    </div>
+  </article>
+  <article>
+    Bitcoin conversion to USD
+  </article>
+</section>
