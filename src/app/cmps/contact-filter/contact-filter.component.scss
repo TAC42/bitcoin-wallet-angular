@@ -1,0 +1,23 @@
+.contact-filter {
+  padding: 0.75em;
+  background-color: rgba(144, 238, 144, 0.8);
+  border-radius: 0.5em;
+  width: fit-content;
+  transition: background-color 0.3s ease-in-out;
+  &:focus-within,
+  &:hover {
+    background-color: rgb(68, 189, 68);
+  }
+
+  input[type="search"] {
+    &:focus-visible {
+      outline: none;
+      border-color: grayscale($color: #686868);
+      border-width: 1px;
+      border-style: solid;
+    }
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+}

@@ -4,10 +4,10 @@
 
   <ul>
     <li>
-      <a routerLink="/home">Home</a>
+      <a routerLink="/home"><img [src]="home" alt="home"></a>
     </li>
     <li>
-      <a routerLink="/contact">Contacts</a>
+      <a routerLink="/contact"><img [src]="contact" alt="contact"></a>
     </li>
     <!-- <li>
       <a routerLink="/count-down"
@@ -21,5 +21,6 @@
     </li>
     <li><a routerLink="/who-watch"><svg-render [svgName]="watcher"></svg-render></a></li> -->
   </ul>
-
 </header>
+
+<router-outlet></router-outlet>

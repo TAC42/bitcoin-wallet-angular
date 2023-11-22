@@ -1,0 +1,15 @@
+.contact-preview {
+  padding: 1em 0;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+  }
+  .user-img {
+    img {
+      width: 2em;
+      height: 2em;
+    }
+  }
+}

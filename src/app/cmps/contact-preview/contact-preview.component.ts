@@ -9,7 +9,8 @@ import { Contact } from '../../models/contact.model';
 export class ContactPreviewComponent {
   @Input() contact!: Contact
   @Output() remove = new EventEmitter()
-
+  userImg = 'https://res.cloudinary.com/digrqdbso/image/upload/v1700657497/wo_lodbcw.png'
+  
 
   onRemoveContact() {
     this.remove.emit(this.contact._id)

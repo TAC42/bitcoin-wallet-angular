@@ -10,6 +10,8 @@ import { ContactDetailsComponent } from './pages/contact-details/contact-details
 import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component';
 import { ContactListComponent } from './cmps/contact-list/contact-list.component';
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,8 +9,21 @@ header {
   gap: 1em;
   background-color: rgb(42, 202, 42);
   img {
-    padding: 0 0.5em;
+    margin: 0 0.5em;
     width: 64px;
     height: 64px;
+ 
+  }
+
+  ul {
+    display: flex;
+    gap: 1em;
+    li {
+      img {
+        width: 42px;
+        height: 42px;
+        object-fit: cover;
+      }
+    }
   }
 }
