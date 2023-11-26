@@ -8,8 +8,11 @@
     <article class="img">
       <img src="https://robohash.org/{{ contact._id }}?set=set4" alt="" />
     </article>
-    <a routerLink="/contact">
+    <a class="back" routerLink="/contact">
       <img src="../../../assets/images/back.png" alt="back" />
+    </a>
+    <a class="edit" [routerLink]="['/edit', contact._id]">
+      <img src="../../../assets/images/edit.png" alt="back" />
     </a>
   </section>
 </ng-container>

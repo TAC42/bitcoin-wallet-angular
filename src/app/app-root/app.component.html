@@ -1,26 +1,3 @@
-<header class="main-header"> 
-  <img [src]="logo" alt="logo">
-  <h1>{{title}}</h1>
-
-  <ul>
-    <li>
-      <a routerLink="/home"><img [src]="home" alt="home"></a>
-    </li>
-    <li>
-      <a routerLink="/contact"><img [src]="contact" alt="contact"></a>
-    </li>
-    <!-- <li>
-      <a routerLink="/count-down"
-        ><svg-render [svgName]="countdown"></svg-render
-      ></a>
-    </li>
-    <li>
-      <a routerLink="/show-cords"
-        ><svg-render [svgName]="cords"></svg-render
-      ></a>
-    </li>
-    <li><a routerLink="/who-watch"><svg-render [svgName]="watcher"></svg-render></a></li> -->
-  </ul>
-</header>
+<app-header/>
 
 <router-outlet></router-outlet>

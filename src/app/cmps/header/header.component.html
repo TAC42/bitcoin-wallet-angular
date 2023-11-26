@@ -1,0 +1,24 @@
+<header class="main-header"> 
+    <img [src]="logo" alt="logo">
+    <h1>{{title}}</h1>
+  
+    <ul>
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><img [src]="home" alt="home"></a>
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="active"><img [src]="contact" alt="contact"></a>
+      </li>
+      <!-- <li>
+        <a routerLink="/count-down"
+          ><svg-render [svgName]="countdown"></svg-render
+        ></a>
+      </li>
+      <li>
+        <a routerLink="/show-cords"
+          ><svg-render [svgName]="cords"></svg-render
+        ></a>
+      </li>
+      <li><a routerLink="/who-watch"><svg-render [svgName]="watcher"></svg-render></a></li> -->
+    </ul>
+  </header>

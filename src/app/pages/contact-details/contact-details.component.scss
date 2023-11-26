@@ -26,8 +26,14 @@
   }
   a {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    &.back {
+      top: 5px;
+      right: 5px;
+    }
+    &.edit {
+      bottom: 5px;
+      right: 5px;
+    }
     img {
       width: 1.5em;
       height: 1.5em;

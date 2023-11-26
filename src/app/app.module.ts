@@ -12,6 +12,7 @@ import { ContactListComponent } from './cmps/contact-list/contact-list.component
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './cmps/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactDetailsComponent,
     ContactPreviewComponent,
     ContactListComponent,
-    ContactFilterComponent
+    ContactFilterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
